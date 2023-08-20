@@ -1,0 +1,1559 @@
+  if gg.getTargetPackage() == "com.miraclegames.farlight84"
+then
+gg.toast("Loading script, await")
+else
+print("\n                𝙋𝙡𝙚𝙖𝙨𝙚 𝙎𝙚𝙡𝙚𝙘𝙩 🇫 🇦 🇷 🇱 🇮 🇬 🇭 🇹                \n                𝘽𝙚𝙛𝙤𝙧𝙚 𝙔𝙊𝙐 𝙀𝙭𝙚𝙘𝙪𝙩𝙚 𝙈𝙔 𝙎𝙘𝙧𝙞𝙥𝙩                \n")
+os.exit()
+end
+
+
+
+
+
+
+
+
+
+
+
+function WriteBaseAddress_DWORD(Lib, Offset, Edit)
+    local Ranges = gg.getRangesList(Lib)
+    if Ranges and #Ranges > 0 then
+        local v = {}
+        v[1] = {}
+        v[1].address = Ranges[1].start + Offset
+        v[1].value = Edit
+        v[1].flags = 4
+        v[1].freeze = true
+gg.setValues(v)
+    end
+end
+
+function isPowerOf(num, base)
+  if num == 1 then
+    return true
+  elseif num < 1 or num % base > 0 then
+    return false
+  else
+    return isPowerOf(num / base, base)
+  end
+end
+function invLog(num, base)
+  if num == 0 then
+    return 0
+  elseif num == 1 then
+    return 1
+  elseif base == 1 then
+    return math.exp(num)
+  else
+    local log_bc = math.log(base)
+    if isPowerOf(num, base) then
+      return math.floor(math.log(num) / log_bc)
+    else
+      return math.floor((math.log(num) / log_bc) + 1)
+    end
+  end
+end
+function antilog(num, base)
+  return math.pow(base, num)
+end
+local num = 1000
+local base = 10
+
+function setvalue(address,flags,value) local tt={} tt[1]={} tt[1].address=address tt[1].flags=flags tt[1].value=value gg.setValues(tt) end
+
+function alert()
+
+X = gg.alert([[
+╔━━━━━━━━━━━━━━━━━━━━━━━╗
+    ─╔══╗░░░░╔╦╗░░╔═════╗─
+    ─║╚═╬════╬╣╠═╗║░▀░▀░║─
+    ─╠═╗║╔╗╔╗║║║╩╣║╚═══╝║─
+    ─╚══╩╝╚╝╚╩╩╩═╝╚═════╝─
+    ─────█─▄▀█──█▀▄─█─────
+    ────▐▌──────────▐▌────
+    ────█▌▀▄──▄▄──▄▀▐█────
+    ───▐██──▀▀──▀▀──██▌───
+    ──▄████▄──▐▌──▄████▄──
+╚━━━━━━━━━━━━━━━━━━━━━━━╝
+]],"[ ʟᴏɢᴏ ]","[ 𝙴𝚇𝙸𝚃 ]") 
+
+if X == 1 then 
+return 
+end
+if X == 2 then
+os.exit() 
+end
+end
+alert()
+
+function setvalue(address,flags,value) local tt={} tt[1]={} tt[1].address=address tt[1].flags=flags tt[1].value=value gg.setValues(tt) end
+
+
+gg.setRanges(gg.REGION_CODE_APP)
+gg.searchNumber("h00 76 61 70")
+gg.getResults(9999)
+gg.editAll("h00 00 A0 E3 1E", gg.TYPE_BYTE)
+gg.clearResults()
+function WriteSignatures(original,K0NTOL) gg.setRanges(16384) gg.searchNumber("h"..original) gg.getResults(9999) gg.editAll("h"..K0NTOL,1)   end
+function split(szFullString, szSeparator)  local nFindStartIndex = 1  local nSplitIndex = 1  local nSplitArray = {}  while true do  local nFindLastIndex = string.find (szFullString, szSeparator, nFindStartIndex)  if not nFindLastIndex then  nSplitArray[nSplitIndex] =  string.sub(szFullString, nFindStartIndex, string.len (szFullString))  break end  nSplitArray[nSplitIndex] = string.sub (szFullString, nFindStartIndex, nFindLastIndex - 1)  nFindStartIndex = nFindLastIndex + string.len (szSeparator)  nSplitIndex = nSplitIndex + 1 end return  nSplitArray end  function xgxc(szpy, qmxg)  for x = 1, #(qmxg) do  xgpy = szpy + qmxg[x]["offset"]  xglx = qmxg[x]["type"]  xgsz = qmxg[x]["value"]  xgdj = qmxg[x]["freeze"]  if xgdj == nil or xgdj == "" then  gg.setValues({[1]  = {address = xgpy, flags = xglx, value = xgsz}})  else  gg.addListItems({[1]  = {address = xgpy, flags = xglx,  freeze = xgdj, value = xgsz}}) end  xgsl = xgsl + 1 xgjg = true end end  function xqmnb(qmnb)   gg.setRanges(qmnb[1]["memory"])  gg.searchNumber(qmnb[3]["value"], qmnb[3]["type"])  if gg.getResultCount() == 0 then  gg.toast(qmnb[2]["name"] .. "开启失败")  else  gg.refineNumber(qmnb[3]["value"], qmnb[3]["type"]) gg.refineNumber(qmnb[3]["value"], qmnb[3]["type"])  gg.refineNumber(qmnb[3]["value"], qmnb[3]["type"])  if gg.getResultCount() == 0 then  gg.toast(qmnb[2]["name"] .. "开启失败")  else          sl = gg.getResults(999999)  sz = gg.getResultCount()          xgsl = 0 if sz > 999999 then  sz = 999999 end for i = 1, sz do  pdsz = true for v = 4, #(qmnb) do if  pdsz == true then  pysz = {} pysz[1]  = {} pysz[1].address  = sl[i].address + qmnb[v]["offset"] pysz[1].flags  = qmnb[v]["type"]  szpy = gg.getValues(pysz)  pdpd = qmnb[v]["lv"] .. ";" .. szpy[1].value szpd  = split(pdpd, ";") tzszpd  = szpd[1] pyszpd = szpd[2]  if tzszpd == pyszpd then  pdjg = true pdsz = true else  pdjg = false pdsz = false end end end if  pdjg == true then szpy  = sl[i].address xgxc(szpy, qmxg) end end  if xgjg == true then  gg.toast(qmnb[2]["name"] .. "开启成功,共修改" .. xgsl .. "条数据")  else  gg.toast(qmnb[2]["name"] .. "开启失败")  end  end  end  end
+local AobSearch = "00 76 61 70"
+local AobReplace = "00 00 A0 E3 1E"
+WriteSignatures(AobSearch,AobReplace)
+gg.clearResults()
+so = gg.getRangesList('libanogs.so')[1].start
+py = 0x67A98C
+setvalue(so + py, 4, 'h 00 00 A0 E3 1E FF 2F E1')
+so = gg.getRangesList('libanogs.so')[1].start
+py = 0x67A994
+setvalue(so + py, 4, 'h 00 00 A0 E3 1E FF 2F E1')
+so = gg.getRangesList('libanogs.so')[1].start
+py = 0x67AE84
+setvalue(so + py, 4, 'h 00 00 A0 E3 1E FF 2F E1')
+so = gg.getRangesList('libanogs.so')[1].start
+py = 0x67AE8C
+setvalue(so + py, 4, 'h 00 00 A0 E3 1E FF 2F E1')
+so = gg.getRangesList('libanogs.so')[1].start
+py = 0x6A3F88
+setvalue(so + py, 4, 'h 00 20 70 47')
+so = gg.getRangesList('libanogs.so')[1].start
+py = 0x6C0994
+setvalue(so + py, 4, 'h 00 20 70 47')
+so = gg.getRangesList('libanogs.so')[1].start
+py = 0x6C92C4
+setvalue(so + py, 4, 'h 00 20 70 47')
+so = gg.getRangesList('libanogs.so')[1].start
+py = 0x74F9E4
+setvalue(so + py, 4, 'h 00 20 70 47')
+local so = gg.getRangesList("libanogs.so")[1].start
+local py = 0x92E30
+setvalue(so + py, gg.TYPE_DWORD, "h C0 035 FD 6")
+local so = gg.getRangesList("libanogs.so")[1].start
+local py = 0x92EF0
+setvalue(so + py, gg.TYPE_DWORD, "h C0 035 FD 6")
+local so = gg.getRangesList("libanogs.so")[1].start
+local py = 0x93000
+setvalue(so + py, gg.TYPE_DWORD, "h C0 035 FD 6")
+local so = gg.getRangesList("libanogs.so")[1].start
+local py = 0x93430
+setvalue(so + py, gg.TYPE_DWORD, "h C0 035 FD 6")
+gg.clearResults()
+local so = gg.getRangesList("libanogs.so")[1].start
+local py = 0x92E30
+setvalue(so + py, gg.TYPE_DWORD, "h C0 035 FD 6")
+local so = gg.getRangesList("libanogs.so")[1].start
+local py = 0x92EF0
+setvalue(so + py, gg.TYPE_DWORD, "h C0 035 FD 6")
+local so = gg.getRangesList("libanogs.so")[1].start
+local py = 0x93000
+setvalue(so + py, gg.TYPE_DWORD, "h C0 035 FD 6")
+local so = gg.getRangesList("libanogs.so")[1].start
+local py = 0x93430
+setvalue(so + py, gg.TYPE_DWORD, "h C0 035 FD 6")
+gg.clearResults()
+
+
+local so = gg.getRangesList("libanogs.so")[1].start
+local py = 0x92E30
+setvalue(so + py, gg.TYPE_DWORD, "h C0 035 FD 6")
+local so = gg.getRangesList("libanogs.so")[1].start
+local py = 0x92EF0
+setvalue(so + py, gg.TYPE_DWORD, "h C0 035 FD 6")
+local so = gg.getRangesList("libanogs.so")[1].start
+local py = 0x93000
+setvalue(so + py, gg.TYPE_DWORD, "h C0 035 FD 6")
+local so = gg.getRangesList("libanogs.so")[1].start
+local py = 0x93430
+setvalue(so + py, gg.TYPE_DWORD, "h C0 035 FD 6")
+local so = gg.getRangesList("libanogs.so")[1].start
+local py = 0x18673934
+setvalue(so + py, gg.TYPE_DWORD, "0")
+local so = gg.getRangesList("libanogs.so")[1].start
+local py = 0x186738A4
+setvalue(so + py, gg.TYPE_DWORD, "0")
+local so = gg.getRangesList("libanogs.so")[1].start
+local py = 0x1867361C
+setvalue(so + py, gg.TYPE_DWORD, "0")
+local so = gg.getRangesList("libanogs.so")[1].start
+local py = 0x186735EC
+setvalue(so + py, gg.TYPE_DWORD, "0")
+local so = gg.getRangesList("libanogs.so")[1].start
+local py = 0x186734B4
+setvalue(so + py, gg.TYPE_DWORD, "0")
+local so = gg.getRangesList("libanogs.so")[1].start
+local py = 0x18673484
+setvalue(so + py, gg.TYPE_DWORD, "0")
+local so = gg.getRangesList("libanogs.so")[1].start
+local py = 0x1867222C
+setvalue(so + py, gg.TYPE_DWORD, "0")
+local so = gg.getRangesList("libanogs.so")[1].start
+local py = 0x18672138
+setvalue(so + py, gg.TYPE_DWORD, "0")
+local so = gg.getRangesList("libanogs.so")[1].start
+local py = 0x18671EC0
+setvalue(so + py, gg.TYPE_DWORD, "0")
+local so = gg.getRangesList("libanogs.so")[1].start
+local py = 0x18671C50
+setvalue(so + py, gg.TYPE_DWORD, "0")
+local so = gg.getRangesList("libanogs.so")[1].start
+local py = 0x18671910
+setvalue(so + py, gg.TYPE_DWORD, "0")
+local so = gg.getRangesList("libanogs.so")[1].start
+local py = 0x186717F0
+setvalue(so + py, gg.TYPE_DWORD, "0")
+local so = gg.getRangesList("libanogs.so")[1].start
+local py = 0x118AA980
+setvalue(so + py, gg.TYPE_DWORD, "0")
+local so = gg.getRangesList("libanogs.so")[1].start
+local py = 0x138B318
+setvalue(so + py, gg.TYPE_DWORD, "0")
+local so = gg.getRangesList("libanogs.so")[1].start
+local py = 0xA36478
+setvalue(so + py, gg.TYPE_DWORD, "0")
+local so = gg.getRangesList("libanogs.so")[1].start
+local py = 0x8EC8F0
+setvalue(so + py, gg.TYPE_DWORD, "0")
+local so = gg.getRangesList("libanogs.so")[1].start
+local py = 0x8388BC
+setvalue(so + py, gg.TYPE_DWORD, "0")
+local so = gg.getRangesList("libanogs.so")[1].start
+local py = 0x92E30
+setvalue(so + py, gg.TYPE_DWORD, "h C0 035 FD 6")
+local so = gg.getRangesList("libanogs.so")[1].start
+local py = 0x92EF0
+setvalue(so + py, gg.TYPE_DWORD, "h C0 035 FD 6")
+local so = gg.getRangesList("libanogs.so")[1].start
+local py = 0x93000
+setvalue(so + py, gg.TYPE_DWORD, "h C0 035 FD 6")
+local so = gg.getRangesList("libanogs.so")[1].start
+local py = 0x93430
+setvalue(so + py, gg.TYPE_DWORD, "h C0 035 FD 6")
+local so = gg.getRangesList("libanogs.so")[1].start
+local py = 0x511966821224
+setvalue(so + py, gg.TYPE_DWORD, "h 00 00 A0 E3 1E FF 2F E1")
+local so = gg.getRangesList("libanogs.so")[1].start
+local py = 0x511967809480
+setvalue(so + py, gg.TYPE_DWORD, "h 00 00 A0 E3 1E FF 2F E1")
+local so = gg.getRangesList("libanogs.so")[1].start
+local py = 0x511967940096
+setvalue(so + py, gg.TYPE_DWORD, "h 00 00 A0 E3 1E FF 2F E1")
+local so = gg.getRangesList("libanogs.so")[1].start
+local py = 0x511968009288
+setvalue(so + py, gg.TYPE_DWORD, "h 00 00 A0 E3 1E FF 2F E1")
+local so = gg.getRangesList("libanogs.so")[1].start
+local py = 0x511968058108
+setvalue(so + py, gg.TYPE_DWORD, "h 00 00 A0 E3 1E FF 2F E1")
+local so = gg.getRangesList("libanogs.so")[1].start
+local py = 0x511968137676
+setvalue(so + py, gg.TYPE_DWORD, "h 00 00 A0 E3 1E FF 2F E1")
+local so = gg.getRangesList("libanogs.so")[1].start
+local py = 0x511968191516
+setvalue(so + py, gg.TYPE_DWORD, "h 00 00 A0 E3 1E FF 2F E1")
+local so = gg.getRangesList("libanogs.so")[1].start
+local py = 0x511968201876
+setvalue(so + py, gg.TYPE_DWORD, "h 00 00 A0 E3 1E FF 2F E1")
+local so = gg.getRangesList("libanogs.so")[1].start
+local py = 0x511968202792
+setvalue(so + py, gg.TYPE_DWORD, "h 00 00 A0 E3 1E FF 2F E1")
+local so = gg.getRangesList("libanogs.so")[1].start
+local py = 0x511966736572
+setvalue(so + py, gg.TYPE_DWORD, "h 00 00 A0 E3 1E FF 2F E1")
+local so = gg.getRangesList("libanogs.so")[1].start
+local py = 0x511967003332
+setvalue(so + py, gg.TYPE_DWORD, "h 00 00 A0 E3 1E FF 2F E1")
+local so = gg.getRangesList("libanogs.so")[1].start
+local py = 0x511968058108
+setvalue(so + py, gg.TYPE_DWORD, "h 00 00 A0 E3 1E FF 2F E1")
+local so = gg.getRangesList("libanogs.so")[1].start
+local py = 0x511968137676
+setvalue(so + py, gg.TYPE_DWORD, "h 00 00 A0 E3 1E FF 2F E1")
+local so = gg.getRangesList("libanogs.so")[1].start
+local py = 0x511968191516
+setvalue(so + py, gg.TYPE_DWORD, "h 00 00 A0 E3 1E FF 2F E1")
+gg.alert("ʟᴏɢᴏ ʙʏᴘᴀꜱꜱ ᴀᴄᴛɪᴠᴀᴛᴇᴅ")
+
+
+HOME = 1
+function HOME()
+MN = gg.choice({
+"          \n                            𝐁𝐘𝐏𝐀𝐒𝐒 𝐌𝐄𝐌𝐎𝐑𝐘\n          ",
+"          \n                            𝐌𝐄𝐌𝐎𝐑𝐘 𝐇𝐀𝐂𝐊\n          ",
+"          \n                                     𝐄𝐗𝐈𝐓\n          "
+}, nil, (os.date("                                   ♡ᴏᴡɴ : ꜰᴋᴇʀ♡ \n               • %A, %d %B %Y %H:%M%p • ")))
+if MN == nil then
+else
+if MN == 1 then BP9() end
+if MN == 2 then BP3() end
+if MN == 3 then Exit() end end
+PUBGMH = -1
+end
+
+
+function BP9()
+bypass = gg.choice({
+	"          ╔━━━━━━━━━━━━━━━━━━╗\n\n                  ʟᴏʙʙʏ ʙʏᴘᴀss [ ʟᴏʙʙʏ ]\n",
+	"                    ᴀɴᴛɪ ʀᴇᴘᴏʀᴛ [ ʟᴏʙʙʏ ]\n",
+	"                 ʙʟᴏᴄᴋ sᴘᴇᴄᴛᴀᴛᴇ [ ʟᴏʙʙʏ ]\n",
+	"                               ʀᴇᴛᴜʀɴ\n\n          ╚━━━━━━━━━━━━━━━━━━╝"
+}, nil, (os.date("         ᴅᴀᴛᴇ : %A, %d %B %Y %H:%M%p\n   ╠━━━━━━━━━━━━━━━━━━━━━━━━━━━━╣\n                           ɢᴀᴍᴇ :  ꜰᴀʀʟɪɢʜᴛ 84")))
+if bypass == nil then else 
+if bypass == 1 then BP2() end
+if bypass == 2 then anti()end
+if bypass == 3 then block()end
+if bypass == 4 then HOME()end
+end
+HOMEDM = -1
+end
+
+
+
+
+----------------------------------------------------------------------------------------------------------------------------------------------
+
+----------------------------------------------------------------------------------------------------------------------------------------------
+
+
+ 
+
+----------------------------------------------------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------------------------------------------------
+function BP2()
+gg.setRanges(gg.REGION_CODE_APP)
+gg.searchNumber("1,835,232,613", gg.TYPE_DWORD)
+gg.refineNumber("1,835,232,613", gg.TYPE_DWORD)
+gg.getResults(99999)
+gg.editAll("0", gg.TYPE_DWORD)
+gg.clearResults()
+so = gg.getRangesList('libUE4.so')[1].start
+py = 0x1AD63BC
+setvalue(so + py, 4, '0')
+so = gg.getRangesList('libUE4.so')[1].start
+py = 0x1AD2A10
+setvalue(so + py, 4, '0')
+so = gg.getRangesList('libUE4.so')[1].start
+py = 0x1AB1044
+setvalue(so + py, 4, '0')
+so = gg.getRangesList('libUE4.so')[1].start
+py = 0x1A76A90
+setvalue(so + py, 4, '0')
+so = gg.getRangesList('libUE4.so')[1].start
+py = 0x1B4E118
+setvalue(so + py, 4, '0')
+so = gg.getRangesList('libUE4.so')[1].start
+py = 0x1ADDCEC
+setvalue(so + py, 4, '0')
+so = gg.getRangesList('libUE4.so')[1].start
+py = 0x1ADA9D8
+setvalue(so + py, 4, '0')
+so = gg.getRangesList('libUE4.so')[1].start
+py = 0x10EF5694
+setvalue(so + py, 4, '0')
+so = gg.getRangesList('libUE4.so')[1].start
+py = 0x2063DBC
+setvalue(so + py, 4, '0')
+gg.clearResults()
+so = gg.getRangesList('libUE4.so')[1].start
+py = 0x58AE424
+setvalue(so + py, 4, '0')
+so = gg.getRangesList('libUE4.so')[1].start
+py = 0x4D92D20
+setvalue(so + py, 4, '0')
+so = gg.getRangesList('libUE4.so')[1].start
+py = 0x5A328F4
+setvalue(so + py, 4, '0')
+so = gg.getRangesList('libUE4.so')[1].start
+py = 0x5788AE0
+setvalue(so + py, 4, '0')
+so = gg.getRangesList('libUE4.so')[1].start
+py = 0x5A327BC
+setvalue(so + py, 4, '0')
+so = gg.getRangesList('libanogs.so')[1].start
+py = 0x511968202948.0
+setvalue(so + py, 4, "h 00 00 A0 E3 1E FF 2F E1")
+so = gg.getRangesList('libanogs.so')[1].start
+py = 0x511966829152.0
+setvalue(so + py, 4, "h 00 00 A0 E3 1E FF 2F E1")
+so = gg.getRangesList('libanogs.so')[1].start
+py = 0x511966848088.0
+setvalue(so + py, 4, "h 00 00 A0 E3 1E FF 2F E1")
+so = gg.getRangesList('libanogs.so')[1].start
+py = 0x511966913552.0
+setvalue(so + py, 4, "h 00 00 A0 E3 1E FF 2F E1")
+so = gg.getRangesList('libanogs.so')[1].start
+py = 0x511966926528.0
+setvalue(so + py, 4, "h 00 00 A0 E3 1E FF 2F E1")
+so = gg.getRangesList('libanogs.so')[1].start
+py = 0x511966941556.0
+setvalue(so + py, 4, "h 00 00 A0 E3 1E FF 2F E1")
+so = gg.getRangesList('libanogs.so')[1].start
+py = 0x511967005772.0
+setvalue(so + py, 4, "h 00 00 A0 E3 1E FF 2F E1")
+so = gg.getRangesList('libanogs.so')[1].start
+py = 0x511967014212.0
+setvalue(so + py, 4, "h 00 00 A0 E3 1E FF 2F E1")
+so = gg.getRangesList('libanogs.so')[1].start
+py = 0x511967041872.0
+setvalue(so + py, 4, "h 00 00 A0 E3 1E FF 2F E1")
+so = gg.getRangesList('libanogs.so')[1].start
+py = 0x511967042188.0
+setvalue(so + py, 4, "h 00 00 A0 E3 1E FF 2F E1")
+so = gg.getRangesList('libanogs.so')[1].start
+py = 0x511967042500.0
+setvalue(so + py, 4, "h 00 00 A0 E3 1E FF 2F E1")
+so = gg.getRangesList('libanogs.so')[1].start
+py = 0x511967042804.0
+setvalue(so + py, 4, "h 00 00 A0 E3 1E FF 2F E1")
+so = gg.getRangesList('libanogs.so')[1].start
+py = 0x511967051324.0
+setvalue(so + py, 4, "h 00 00 A0 E3 1E FF 2F E1")
+so = gg.getRangesList('libanogs.so')[1].start
+py = 0x511967090944.0
+setvalue(so + py, 4, "h 00 00 A0 E3 1E FF 2F E1")
+so = gg.getRangesList('libanogs.so')[1].start
+py = 0x511967090952.0
+setvalue(so + py, 4, "h 00 00 A0 E3 1E FF 2F E1")
+so = gg.getRangesList('libanogs.so')[1].start
+py = 0x511967167608.0
+setvalue(so + py, 4, "h 00 00 A0 E3 1E FF 2F E1")
+so = gg.getRangesList('libanogs.so')[1].start
+py = 0x511967173012.0
+setvalue(so + py, 4, "h 00 00 A0 E3 1E FF 2F E1")
+so = gg.getRangesList('libanogs.so')[1].start
+py = 0x511967185224.0
+setvalue(so + py, 4, "h 00 00 A0 E3 1E FF 2F E1")
+so = gg.getRangesList('libanogs.so')[1].start
+py = 0x511967185412.0
+setvalue(so + py, 4, "h 00 00 A0 E3 1E FF 2F E1")
+so = gg.getRangesList('libanogs.so')[1].start
+py = 0x511967284488.0
+setvalue(so + py, 4, "h 00 00 A0 E3 1E FF 2F E1")
+so = gg.getRangesList('libanogs.so')[1].start
+py = 0x511967335036.0
+setvalue(so + py, 4, "h 00 00 A0 E3 1E FF 2F E1")
+so = gg.getRangesList('libanogs.so')[1].start
+py = 0x511967335188.0
+setvalue(so + py, 4, "h 00 00 A0 E3 1E FF 2F E1")
+so = gg.getRangesList('libanogs.so')[1].start
+py = 0x511967352996.0
+setvalue(so + py, 4, "h 00 00 A0 E3 1E FF 2F E1")
+so = gg.getRangesList('libanogs.so')[1].start
+py = 0x511967352996.0
+setvalue(so + py, 4, "h 00 00 A0 E3 1E FF 2F E1")
+so = gg.getRangesList('libanogs.so')[1].start
+py = 0x511967452460.0
+setvalue(so + py, 4, "h 00 00 A0 E3 1E FF 2F E1")
+so = gg.getRangesList('libanogs.so')[1].start
+py = 0x511967454680.0
+setvalue(so + py, 4, "h 00 00 A0 E3 1E FF 2F E1")
+so = gg.getRangesList('libanogs.so')[1].start
+py = 0x511967463340.0
+setvalue(so + py, 4, "h 00 00 A0 E3 1E FF 2F E1")
+so = gg.getRangesList('libanogs.so')[1].start
+py = 0x511967472832.0
+setvalue(so + py, 4, "h 00 00 A0 E3 1E FF 2F E1")
+so = gg.getRangesList('libanogs.so')[1].start
+py = 0x511967477768.0
+setvalue(so + py, 4, "h 00 00 A0 E3 1E FF 2F E1")
+so = gg.getRangesList('libanogs.so')[1].start
+py = 0x511967521632.0
+setvalue(so + py, 4, "h 00 00 A0 E3 1E FF 2F E1")
+so = gg.getRangesList('libanogs.so')[1].start
+py = 0x511967550848.0
+setvalue(so + py, 4, "h 00 00 A0 E3 1E FF 2F E1")
+so = gg.getRangesList('libanogs.so')[1].start
+py = 0x511967550896.0
+setvalue(so + py, 4, "h 00 00 A0 E3 1E FF 2F E1")
+so = gg.getRangesList('libanogs.so')[1].start
+py = 0x511967550976.0
+setvalue(so + py, 4, "h 00 00 A0 E3 1E FF 2F E1")
+so = gg.getRangesList('libanogs.so')[1].start
+py = 0x511967554708.0
+setvalue(so + py, 4, "h 00 00 A0 E3 1E FF 2F E1")
+so = gg.getRangesList('libanogs.so')[1].start
+py = 0x511967565456.0
+setvalue(so + py, 4, "h 00 00 A0 E3 1E FF 2F E1")
+so = gg.getRangesList('libanogs.so')[1].start
+py = 0x511967570336.0
+setvalue(so + py, 4, "h 00 00 A0 E3 1E FF 2F E1")
+so = gg.getRangesList('libanogs.so')[1].start
+py = 0x511967578544.0
+setvalue(so + py, 4, "h 00 00 A0 E3 1E FF 2F E1")
+so = gg.getRangesList('libanogs.so')[1].start
+py = 0x511967601812.0
+setvalue(so + py, 4, "h 00 00 A0 E3 1E FF 2F E1")
+so = gg.getRangesList('libanogs.so')[1].start
+py = 0x511967601812.0
+setvalue(so + py, 4, "h 00 00 A0 E3 1E FF 2F E1")
+so = gg.getRangesList('libanogs.so')[1].start
+py = 0x511967611612.0
+setvalue(so + py, 4, "h 00 00 A0 E3 1E FF 2F E1")
+so = gg.getRangesList('libanogs.so')[1].start
+py = 0x511967624188.0
+setvalue(so + py, 4, "h 00 00 A0 E3 1E FF 2F E1")
+so = gg.getRangesList('libanogs.so')[1].start
+py = 0x511967641224.0
+setvalue(so + py, 4, "h 00 00 A0 E3 1E FF 2F E1")
+so = gg.getRangesList('libanogs.so')[1].start
+py = 0x511967648316.0
+setvalue(so + py, 4, "h 00 00 A0 E3 1E FF 2F E1")
+so = gg.getRangesList('libanogs.so')[1].start
+py = 0x511967682720.0
+setvalue(so + py, 4, "h 00 00 A0 E3 1E FF 2F E1")
+so = gg.getRangesList('libanogs.so')[1].start
+py = 0x511967775852.0
+setvalue(so + py, 4, "h 00 00 A0 E3 1E FF 2F E1")
+so = gg.getRangesList('libanogs.so')[1].start
+py = 0x511967836768.0
+setvalue(so + py, 4, "h 00 00 A0 E3 1E FF 2F E1")
+so = gg.getRangesList('libanogs.so')[1].start
+py = 0x511967185412.0
+setvalue(so + py, 4, "h 00 00 A0 E3 1E FF 2F E1")
+so = gg.getRangesList('libanogs.so')[1].start
+py = 0x511967852352.0
+setvalue(so + py, 4, "h 00 00 A0 E3 1E FF 2F E1")
+so = gg.getRangesList('libanogs.so')[1].start
+py = 0x511967854484.0
+setvalue(so + py, 4, "h 00 00 A0 E3 1E FF 2F E1")
+so = gg.getRangesList('libanogs.so')[1].start
+py = 0x511968054576.0
+setvalue(so + py, 4, "h 00 00 A0 E3 1E FF 2F E1")
+so = gg.getRangesList('libanogs.so')[1].start
+py = 0x511968056596.0
+setvalue(so + py, 4, "h 00 00 A0 E3 1E FF 2F E1")
+so = gg.getRangesList('libanogs.so')[1].start
+py = 0x511968084640.0
+setvalue(so + py, 4, "h 00 00 A0 E3 1E FF 2F E1")
+so = gg.getRangesList('libanogs.so')[1].start
+py = 0x511968088844.0
+setvalue(so + py, 4, "h 00 00 A0 E3 1E FF 2F E1")
+so = gg.getRangesList('libanogs.so')[1].start
+py = 0x511968088844.0
+setvalue(so + py, 4, "h 00 00 A0 E3 1E FF 2F E1")
+so = gg.getRangesList('libanogs.so')[1].start
+py = 0x511968161188.0
+setvalue(so + py, 4, "h 00 00 A0 E3 1E FF 2F E1")
+so = gg.getRangesList('libanogs.so')[1].start
+py = 0x511968200848.0
+setvalue(so + py, 4, "h 00 00 A0 E3 1E FF 2F E1")
+so = gg.getRangesList('libanogs.so')[1].start
+py = 0x511968201152.0
+setvalue(so + py, 4, "h 00 00 A0 E3 1E FF 2F E1")
+so = gg.getRangesList('libanogs.so')[1].start
+py = 0x511968202948.0
+setvalue(so + py, 4, "h 00 00 A0 E3 1E FF 2F E1")
+local so = gg.getRangesList("libUE4.so")[1].start
+local py = 0x1AD63BC
+setvalue(so + py, gg.TYPE_DWORD, "0")
+local so = gg.getRangesList("libUE4.so")[1].start
+local py = 0x1AD2A10
+setvalue(so + py, gg.TYPE_DWORD, "0")
+local so = gg.getRangesList("libUE4.so")[1].start
+local py = 0x1AB1044
+setvalue(so + py, gg.TYPE_DWORD, "0")
+local so = gg.getRangesList("libUE4.so")[1].start
+local py = 0x1A76A90
+setvalue(so + py, gg.TYPE_DWORD, "0")
+local so = gg.getRangesList("libUE4.so")[1].start
+local py = 0x1B4E118
+setvalue(so + py, gg.TYPE_DWORD, "0")
+local so = gg.getRangesList("libUE4.so")[1].start
+local py = 0x1ADDCEC
+setvalue(so + py, gg.TYPE_DWORD, "0")
+local so = gg.getRangesList("libUE4.so")[1].start
+local py = 0x1ADA9D8
+setvalue(so + py, gg.TYPE_DWORD, "0")
+local so = gg.getRangesList("libUE4.so")[1].start
+local py = 0x10EF5694
+setvalue(so + py, gg.TYPE_DWORD, "0")
+local so = gg.getRangesList("libUE4.so")[1].start
+local py = 0x2063DBC
+setvalue(so + py, gg.TYPE_DWORD, "0")
+gg.clearResults()
+gg.alert(" ʙʏᴘᴀꜱꜱ ʟᴏʙʙʏ ᴀᴄᴛɪᴠᴀᴛᴇᴅ ")
+end
+
+
+function block()
+so = gg.getRangesList('libanogs.so')[1].start
+py = 0x420BC
+setvalue(so + py, 4, '0')
+so = gg.getRangesList('libanogs.so')[1].start
+py = 0x245014
+setvalue(so + py, 4, '0')
+so = gg.getRangesList('libanogs.so')[1].start
+py = 0x24501C
+setvalue(so + py, 4, '0')
+so = gg.getRangesList('libanogs.so')[1].start
+py = 0x245028
+setvalue(so + py, 4, '0')
+so = gg.getRangesList('libanogs.so')[1].start
+py = 0x245044
+setvalue(so + py, 4, '0')
+so = gg.getRangesList('libanogs.so')[1].start
+py = 0x245074
+setvalue(so + py, 4, '0')
+so = gg.getRangesList('libanogs.so')[1].start
+py = 0x24509C
+setvalue(so + py, 4, '0')
+so = gg.getRangesList('libanogs.so')[1].start
+py = 0x2450A0
+setvalue(so + py, 4, '0')
+so = gg.getRangesList('libanogs.so')[1].start
+py = 0x2450A4
+setvalue(so + py, 4, '0')
+so = gg.getRangesList('libanogs.so')[1].start
+py = 0x2450AC
+setvalue(so + py, 4, '0')
+so = gg.getRangesList('libanogs.so')[1].start
+py = 0x2450C8
+setvalue(so + py, 4, '0')
+so = gg.getRangesList('libanogs.so')[1].start
+py = 0x245108
+setvalue(so + py, 4, '0')
+so = gg.getRangesList('libanogs.so')[1].start
+py = 0x245124
+setvalue(so + py, 4, '0')
+so = gg.getRangesList('libanogs.so')[1].start
+py = 0x245128
+setvalue(so + py, 4, '0')
+so = gg.getRangesList('libanogs.so')[1].start
+py = 0x24512C
+setvalue(so + py, 4, '0')
+so = gg.getRangesList('libanogs.so')[1].start
+py = 0x245130
+setvalue(so + py, 4, '0')
+so = gg.getRangesList('libanogs.so')[1].start
+py = 0x24513C
+setvalue(so + py, 4, '0')
+so = gg.getRangesList('libanogs.so')[1].start
+py = 0x245150
+setvalue(so + py, 4, '0')
+so = gg.getRangesList('libanogs.so')[1].start
+py = 0x245154
+setvalue(so + py, 4, '0')
+so = gg.getRangesList('libanogs.so')[1].start
+py = 0x245170
+setvalue(so + py, 4, '0')
+so = gg.getRangesList('libanogs.so')[1].start
+py = 0x2451B0
+setvalue(so + py, 4, '0')
+so = gg.getRangesList('libanogs.so')[1].start
+py = 0x2451E4
+setvalue(so + py, 4, '0')
+so = gg.getRangesList('libanogs.so')[1].start
+py = 0x2451E8
+setvalue(so + py, 4, '0')
+so = gg.getRangesList('libanogs.so')[1].start
+py = 0x24520C
+setvalue(so + py, 4, '0')
+so = gg.getRangesList('libanogs.so')[1].start
+py = 0x245240
+setvalue(so + py, 4, '0')
+so = gg.getRangesList('libanogs.so')[1].start
+py = 0x24524C
+setvalue(so + py, 4, '0')
+so = gg.getRangesList('libanogs.so')[1].start
+py = 0x245258
+setvalue(so + py, 4, '0')
+so = gg.getRangesList('libanogs.so')[1].start
+py = 0x245278
+setvalue(so + py, 4, '0')
+so = gg.getRangesList('libanogs.so')[1].start
+py = 0x245280
+setvalue(so + py, 4, '0')
+so = gg.getRangesList('libanogs.so')[1].start
+py = 0x245284
+setvalue(so + py, 4, '0')
+so = gg.getRangesList('libanogs.so')[1].start
+py = 0x24529C
+setvalue(so + py, 4, '0')
+so = gg.getRangesList('libanogs.so')[1].start
+py = 0x2452B4
+setvalue(so + py, 4, '0')
+so = gg.getRangesList('libanogs.so')[1].start
+py = 0x2452C0
+setvalue(so + py, 4, '0')
+so = gg.getRangesList('libanogs.so')[1].start
+py = 0x2452D4
+setvalue(so + py, 4, '0')
+so = gg.getRangesList('libanogs.so')[1].start
+py = 0x2452E4
+setvalue(so + py, 4, '0')
+so = gg.getRangesList('libanogs.so')[1].start
+py = 0x2452E8
+setvalue(so + py, 4, '0')
+so = gg.getRangesList('libanogs.so')[1].start
+py = 0x2452FC
+setvalue(so + py, 4, '0')
+so = gg.getRangesList('libanogs.so')[1].start
+py = 0x24532C
+setvalue(so + py, 4, '0')
+so = gg.getRangesList('libanogs.so')[1].start
+py = 0x245330
+setvalue(so + py, 4, '0')
+so = gg.getRangesList('libanogs.so')[1].start
+py = 0x245364
+setvalue(so + py, 4, '0')
+so = gg.getRangesList('libanogs.so')[1].start
+py = 0x245388
+setvalue(so + py, 4, '0')
+so = gg.getRangesList('libanogs.so')[1].start
+py = 0x2453A0
+setvalue(so + py, 4, '0')
+so = gg.getRangesList('libanogs.so')[1].start
+py = 0x2453EC
+setvalue(so + py, 4, '0')
+so = gg.getRangesList('libanogs.so')[1].start
+py = 0x2453F8
+setvalue(so + py, 4, '0')
+so = gg.getRangesList('libanogs.so')[1].start
+py = 0x245424
+setvalue(so + py, 4, '0')
+so = gg.getRangesList('libanogs.so')[1].start
+py = 0x245428
+setvalue(so + py, 4, '0')
+so = gg.getRangesList('libanogs.so')[1].start
+py = 0x245448
+setvalue(so + py, 4, '0')
+so = gg.getRangesList('libanogs.so')[1].start
+py = 0x24544C
+setvalue(so + py, 4, '0')
+so = gg.getRangesList('libanogs.so')[1].start
+py = 0x245484
+setvalue(so + py, 4, '0')
+so = gg.getRangesList('libanogs.so')[1].start
+py = 0x24548C
+setvalue(so + py, 4, '0')
+so = gg.getRangesList('libanogs.so')[1].start
+py = 0x245498
+setvalue(so + py, 4, '0')
+gg.alert("ʙʟᴏᴄᴋ ꜱᴘᴇᴄᴛᴀᴛᴇ ᴀᴄᴛɪᴠᴀᴛᴇᴅ")
+end
+
+
+function anti()
+gg.searchNumber("2621443;1;52;6;288;4;308;188;29616;16;37352;256;32514;5;4096;39648;35552;36360;40456", gg.TYPE_DWORD, false, gg.SIGN_EQUAL, 0, -1, 0)
+gg.processResume()
+gg.getResults(99999)
+gg.editAll("0", gg.TYPE_DWORD)
+gg.clearResults()
+gg.toast("ᴀɴᴛɪ ʀᴇᴘᴏʀᴛ ᴀᴄᴛɪᴠᴀᴛᴇᴅ")
+end
+
+
+
+
+
+
+
+
+
+
+
+function BP3()
+
+------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------------------------------------------------
+
+ui = gg.multiChoice({
+	"ʜɪᴛʙᴏx ᴍᴇɴᴜ",
+	"ᴡᴀʟʟʜᴀᴄᴋ (sɴᴀᴘᴅʀᴀɢᴏɴ)",
+	"ɢʀᴇᴇɴ ʙᴏᴅʏ ᴡᴀʟʟʜᴀᴄᴋ (ꜱɴᴀᴘᴅʀᴀɢᴏɴ) buggy",
+	"ɪᴘᴀᴅ ᴠɪᴇᴡ [ ɪɴʟᴏʙʙʏ ] ",
+	"ᴡʜɪᴛᴇ ʙᴏᴅʏ [ ɪɴʟᴏʙʙʏ ]",
+	"ᴀɴᴛᴇɴɴᴀ ʜᴇᴀᴅ [ ɪɴɢᴀᴍᴇ ]",
+	"ᴘᴏᴛᴀᴛᴏ ɢʀᴀᴘʜɪᴄs [ɪɴɢᴀᴍᴇ]",
+	"ᴅᴀʀᴋ ᴍᴏᴅᴇ [ ɪɴɢᴀᴍᴇ ]",
+	"ɴɪɢʜᴛ ᴍᴏᴅᴇ [ ɪɴɢᴀᴍᴇ ]",
+	"ʟᴇss ᴛʀᴇᴇ [ ɪɴɢᴀᴍᴇ ]",
+	"sɪᴛ sᴄᴏᴘᴇ [ ɪɴɢᴀᴍᴇ ]",
+	"sᴛᴀɴᴅ sᴄᴏᴘᴇ [ ɪɴɢᴀᴍᴇ ]",
+	"ᴏᴘᴛɪᴍɪᴢᴇ ғᴘs [ ɪɴɢᴀᴍᴇ ]",
+	"ǫᴜɪᴄᴋ ʀᴇʟᴏᴀᴅ [ ᴛᴇsᴛ ]",
+	"ɴᴏ ᴡᴀᴛᴇʀ [ ɪɴɢᴀᴍᴇ ]",
+	"ʀᴇᴛᴜʀɴ",
+	}, nil, (os.date("                                   ♡ᴏᴡɴ : ꜰᴋᴇʀ♡ \n               • %A, %d %B %Y %H:%M%p • ")))
+if ui == nil then 
+else
+if ui[1] == true then head()end
+if ui[2] == true then wallhack()end
+if ui[3] == true then green()end
+if ui[4] == true then ipad()end
+if ui[5] == true then whit()end
+if ui[6] == true then ant()end
+if ui[7] == true then PG()end
+if ui[8] == true then dark()end
+if ui[9] == true then night()end
+if ui[10] == true then less()end
+if ui[11] == true then sit()end
+if ui[12] == true then stand()end
+if ui[13] == true then fps()end
+if ui[14] == true then spred()end
+if ui[15] == true then water1()end
+if ui[16] == true then HOME()end
+end
+HOMEDM = -1
+end
+
+function spred()
+gg.setRanges(gg.REGION_ANONYMOUS)
+gg.searchNumber("1.55558143e-41;3;1.7~4;100:13225", gg.TYPE_FLOAT, false, gg.SIGN_EQUAL, 0, -1)
+gg.refineNumber("1.7~4", gg.TYPE_FLOAT)
+gg.getResults(8000)
+gg.editAll("1.00000000149", gg.TYPE_FLOAT)
+gg.clearResults()
+gg.setRanges(gg.REGION_C_ALLOC)
+gg.searchNumber("67109633", gg.TYPE_DWORD, false, gg.SIGN_EQUAL, 0, -1, 0)
+gg.getResultCount()
+gg.toast("Qᴜɪᴄᴋ ʀᴇʟᴏᴀᴅ ᴀᴄᴛɪᴠᴀᴛᴇᴅ")
+end
+
+function fps()
+gg.searchNumber("1~120;60;90;120", gg.TYPE_FLOAT, false, gg.SIGN_EQUAL, 0, -1, 0)
+gg.refineNumber("60;90;120", gg.TYPE_FLOAT)
+gg.getResults(99999, nil, nil, nil, nil, nil, nil, nil, nil)
+gg.getResults(99999, nil, nil, nil, nil, nil, nil, nil, nil)
+gg.clearResults()
+gg.toast("ʟᴇꜱꜱ ꜰᴘꜱ ᴅʀᴏᴘ ᴀᴄᴛɪᴠᴀᴛᴇᴅ") 
+end
+
+function stand()
+gg.setRanges(gg.REGION_ANONYMOUS)
+gg.searchNumber("63;20;10::17", gg.TYPE_FLOAT, false, gg.SIGN_EQUAL, 0, -1)
+gg.searchNumber("63", gg.TYPE_FLOAT, false, gg.SIGN_EQUAL, 0, -1)
+gg.getResults(5)
+gg.editAll("400", gg.TYPE_FLOAT)
+gg.toast("sᴛᴀɴᴅ sᴄᴏᴘᴇ ᴀᴄᴛɪᴠᴀᴛᴇᴅ")
+end
+
+function sit()
+gg.setRanges(gg.REGION_ANONYMOUS)
+gg.searchNumber("45;20;10::17", gg.TYPE_FLOAT, false, gg.SIGN_EQUAL, 0, -1)
+gg.searchNumber("45", gg.TYPE_FLOAT, false, gg.SIGN_EQUAL, 0, -1)
+gg.getResults(5)
+gg.editAll("400", gg.TYPE_FLOAT)
+gg.toast("sɪᴛ sᴄᴏᴘᴇ ᴀᴄᴛɪᴠᴀᴛᴇᴅ ")
+end
+
+function dark()
+gg.setRanges(gg.REGION_VIDEO)
+gg.searchNumber("8,200;8196", gg.TYPE_DWORD, false, gg.SIGN_EQUAL, 0, -1, 0)
+gg.refineNumber("8196", gg.TYPE_DWORD)
+gg.getResults(5000, nil, nil, nil, nil, nil, nil, nil, nil)
+gg.editAll("2", gg.TYPE_DWORD)
+gg.clearResults()
+gg.toast("ᴅᴀʀᴋᴍᴏᴅᴇ  ᴀᴄᴛɪᴠᴀᴛᴇᴅ")
+end
+
+function night()
+gg.setRanges(gg.REGION_VIDEO)
+gg.searchNumber("8,200;8196", gg.TYPE_DWORD, false, gg.SIGN_EQUAL, 0, -1, 0)
+gg.refineNumber("8196", gg.TYPE_DWORD, false, gg.SIGN_EQUAL, 0, -1, 0)
+gg.getResults(5000)
+gg.editAll("2", gg.TYPE_DWORD)
+gg.toast(" ɴɪɢʜᴛ ᴍᴏᴅᴇ ᴀᴄᴛɪᴠᴀᴛᴇᴅ ")
+gg.clearResults()
+end
+
+function less()
+gg.setRanges(gg.REGION_CODE_APP)
+gg.searchNumber("-1.25420045e28;-1.99678278e28;-1.11445016e28;-2.02910209e20;9.99999994e-9::17", gg.TYPE_FLOAT)
+gg.refineNumber("9.99999994e-9", gg.TYPE_FLOAT)
+gg.getResults(1000)
+gg.editAll("1", gg.TYPE_FLOAT)
+gg.clearResults()
+gg.toast("ʟᴇss ᴛʀᴇᴇ ᴀᴄᴛɪᴠᴀᴛᴇᴅ")
+end
+
+function PG()
+gg.setRanges(gg.REGION_VIDEO)
+gg.searchNumber("8,200D;1.1479437e-41", gg.TYPE_FLOAT)
+gg.refineNumber("1.1479437e-41", gg.TYPE_FLOAT)
+gg.getResults(999)
+gg.editAll("1.14850422e-41", gg.TYPE_FLOAT)
+gg.clearResults()
+gg.toast("ᴘᴏᴛᴀᴛᴏ ɢʀᴀᴘʜɪᴄs ᴀᴄᴛɪᴠᴀᴛᴇᴅ")
+end
+
+function ant()
+gg.setRanges(gg.REGION_ANONYMOUS)
+gg.searchNumber("-0.99999988079;0.0;1.0;0.0000014443~0.0000094443:17", gg.TYPE_FLOAT, false, gg.SIGN_EQUAL, 0, -1)
+gg.refineNumber("1", gg.TYPE_FLOAT)
+gg.getResults(1000)
+gg.editAll("9999", gg.TYPE_FLOAT)
+gg.clearResults()
+gg.toast("ᴀɴᴛᴇɴɴᴀ ʜᴇᴀᴅ ᴀᴄᴛɪᴠᴀᴛᴇᴅ")
+end
+
+function head()
+ue = gg.choice({
+	"ʜɪᴛʙᴏx + ᴀᴜᴛᴏ ʜᴇᴀᴅ ʙʀᴜᴛᴀʟ ɴᴇᴡ (ʟᴏᴏᴘ)",
+	"ᴍᴀɢɪᴄ ʙᴜʟʟᴇᴛ + ᴀᴜᴛᴏ ʜᴇᴀᴅ sᴜᴘᴇʀ ʙʀᴜᴛᴀʟ(ʟᴏᴏᴘ)",
+	"ʜɪᴛʙᴏx ʙᴏᴅʏ (ɴᴏ ʟᴏᴏᴘ)",
+	"ʜɪᴛʙᴏx + ᴀᴜᴛᴏ ʜᴇᴀᴅ (ʟᴏᴏᴘ)",
+	"ᴇxᴛᴇɴᴅᴇᴅ ʜɪᴛʙᴏx + ᴀᴜᴛᴏ ʜᴇᴀᴅ/ʙᴏᴅʏ",
+	"ᴇxᴛᴇɴᴅᴇᴅ ʜɪᴛʙᴏx ʙᴏᴅʏ ( ʟᴏᴏᴘ )",
+	"ʀᴇᴛᴜʀɴ",
+	},nil,"               \n                              ɢᴀᴍᴇ :  ꜰᴀʀʟɪɢʜᴛ 84 \n                                   ♡ᴏᴡɴ : ꜰᴋᴇʀ♡ \n               ")
+if ue == nil then else
+if ue == 1 then FKER1()end
+if ue == 2 then FKER2()end
+if ue == 3 then FKER3()end
+if ue == 4 then FKER4()end
+if ue == 5 then FKER5()end
+if ue == 6 then FKER6()end
+if ue == 7 then HOME()end
+end
+HOMEDM = -1
+end
+
+function FKER6()
+while isFKER6Active do
+gg.setRanges(32)
+gg.searchNumber("15.125", 16)
+gg.getResults(19)
+gg.editAll("90", 16)
+gg.clearResults()
+gg.setRanges(32)
+gg.searchNumber("15.125", 16)
+gg.getResults(13)
+gg.editAll("90", 16)
+gg.clearResults()
+gg.setVisible(false)
+gg.setRanges(gg.REGION_ANONYMOUS)
+gg.searchNumber(4194311, gg.TYPE_DWORD)
+gg.getResultCount()
+gg.clearResults()
+gg.setRanges(gg.REGION_ANONYMOUS)
+gg.searchNumber("6.50295305252", gg.TYPE_FLOAT)
+gg.getResults(500)
+gg.editAll("100", gg.TYPE_FLOAT)
+gg.clearResults()
+gg.setRanges(gg.REGION_ANONYMOUS)
+gg.searchNumber("7.5", gg.TYPE_FLOAT)
+gg.refineNumber("7.5", gg.TYPE_FLOAT)
+gg.getResults(150)
+gg.editAll("100", gg.TYPE_FLOAT)
+gg.clearResults()
+gg.setRanges(gg.REGION_ANONYMOUS)
+gg.searchNumber("6.50295305252", gg.TYPE_FLOAT)
+gg.getResults(500)
+gg.editAll("100", gg.TYPE_FLOAT)
+gg.clearResults()
+gg.setRanges(gg.REGION_ANONYMOUS)
+gg.searchNumber("7.5", gg.TYPE_FLOAT)
+gg.refineNumber("7.5", gg.TYPE_FLOAT)
+gg.getResults(150)
+gg.editAll("100", gg.TYPE_FLOAT)
+gg.clearResults()
+gg.setRanges(32)
+gg.searchNumber("15.125", 16)
+gg.getResults(19)
+gg.editAll("90", 16)
+gg.clearResults()
+gg.setRanges(32)
+gg.searchNumber("15.125", 16)
+gg.getResults(13)
+gg.editAll("90", 16)
+gg.clearResults()
+gg.setVisible(false)
+gg.setRanges(gg.REGION_ANONYMOUS)
+gg.searchNumber(4194311, gg.TYPE_DWORD)
+gg.getResultCount()
+gg.clearResults()
+gg.setRanges(gg.REGION_ANONYMOUS)
+gg.searchNumber("2D;15F::100", gg.TYPE_FLOAT)
+gg.refineNumber("15", gg.TYPE_FLOAT)
+gg.getResults(500)
+gg.editAll("100", gg.TYPE_FLOAT)
+gg.clearResults()
+gg.setRanges(gg.REGION_ANONYMOUS)
+gg.searchNumber("7.5", gg.TYPE_FLOAT)
+gg.refineNumber("7.5", gg.TYPE_FLOAT)
+gg.getResults(150)
+gg.editAll("80", gg.TYPE_FLOAT)
+gg.clearResults()
+gg.setRanges(gg.REGION_ANONYMOUS)
+gg.searchNumber("2D;15F::100", gg.TYPE_FLOAT)
+gg.refineNumber("15", gg.TYPE_FLOAT)
+gg.getResults(500)
+gg.editAll("90", gg.TYPE_FLOAT)
+gg.clearResults()
+gg.setRanges(gg.REGION_ANONYMOUS)
+gg.searchNumber("6.875", gg.TYPE_FLOAT)
+gg.refineNumber("6.875", gg.TYPE_FLOAT)
+gg.getResults(1000)
+gg.editAll("50", gg.TYPE_FLOAT)
+gg.clearResults()
+gg.setRanges(gg.REGION_ANONYMOUS)
+gg.searchNumber("2~10000D;15~15.9;1;0~999999D:17", gg.TYPE_FLOAT)
+gg.refineNumber("15~15.9", gg.TYPE_FLOAT)
+gg.refineNumber("15~15.9", gg.TYPE_FLOAT)
+gg.getResults(50000)
+gg.editAll("100", gg.TYPE_FLOAT)
+gg.clearResults()
+gg.setRanges(gg.REGION_ANONYMOUS)
+gg.searchNumber("6.50295305252", gg.TYPE_FLOAT)
+gg.getResults(500)
+gg.editAll("70", gg.TYPE_FLOAT)
+gg.clearResults()
+gg.setRanges(gg.REGION_ANONYMOUS)
+gg.searchNumber("65802D;0D;6~8::9", gg.TYPE_DWORD)
+gg.refineNumber("6~8", gg.TYPE_DWORD)
+gg.getResults(1000)
+gg.editAll("99", gg.TYPE_DWORD)
+gg.clearResults()
+gg.setRanges(32)
+gg.searchNumber("15.125", 16)
+gg.getResults(19)
+gg.editAll("90", 16)
+gg.clearResults()
+gg.setRanges(32)
+gg.searchNumber("15.125", 16)
+gg.getResults(13)
+gg.editAll("90", 16)
+gg.clearResults()
+gg.setVisible(false)
+gg.setRanges(gg.REGION_ANONYMOUS)
+gg.searchNumber(4194311, gg.TYPE_DWORD)
+gg.getResultCount()
+gg.clearResults()
+gg.setRanges(gg.REGION_ANONYMOUS)
+gg.searchNumber("7.5", gg.TYPE_FLOAT)
+gg.refineNumber("7.5", gg.TYPE_FLOAT)
+gg.getResults(150)
+gg.editAll("75", gg.TYPE_FLOAT)
+gg.clearResults()
+gg.setRanges(gg.REGION_ANONYMOUS)
+gg.searchNumber("6.875", gg.TYPE_FLOAT)
+gg.refineNumber("6.875", gg.TYPE_FLOAT)
+gg.getResults(1000)
+gg.editAll("85", gg.TYPE_FLOAT)
+gg.clearResults()
+gg.setRanges(gg.REGION_ANONYMOUS)
+gg.searchNumber("7.5", gg.TYPE_FLOAT)
+gg.refineNumber("7.5", gg.TYPE_FLOAT)
+gg.getResults(150)
+gg.editAll("90", gg.TYPE_FLOAT)
+gg.clearResults()
+gg.setRanges(32)
+gg.searchNumber("15.125", 16)
+gg.getResults(19)
+gg.editAll("90", 16)
+gg.clearResults()
+gg.setRanges(32)
+gg.searchNumber("15.125", 16)
+gg.getResults(13)
+gg.editAll("90", 16)
+gg.clearResults()
+gg.setVisible(false)
+gg.setRanges(gg.REGION_ANONYMOUS)
+gg.searchNumber(4194311, gg.TYPE_DWORD)
+gg.getResultCount()
+gg.clearResults()
+gg.setRanges(gg.REGION_ANONYMOUS)
+gg.searchNumber("7.5", gg.TYPE_FLOAT)
+gg.refineNumber("7.5", gg.TYPE_FLOAT)
+gg.getResults(150)
+gg.editAll("95", gg.TYPE_FLOAT)
+gg.clearResults()
+gg.setRanges(gg.REGION_ANONYMOUS)
+gg.searchNumber("7.5", gg.TYPE_FLOAT)
+gg.refineNumber("7.5", gg.TYPE_FLOAT)
+gg.getResults(150)
+gg.editAll("100", gg.TYPE_FLOAT)
+gg.clearResults()
+gg.setRanges(gg.REGION_ANONYMOUS)
+gg.searchNumber("2D;15F::100", gg.TYPE_FLOAT)
+gg.refineNumber("15", gg.TYPE_FLOAT)
+gg.getResults(500)
+gg.editAll("100", gg.TYPE_FLOAT)
+gg.clearResults()
+gg.setRanges(gg.REGION_ANONYMOUS)
+gg.searchNumber("6.875", gg.TYPE_FLOAT)
+gg.refineNumber("6.875", gg.TYPE_FLOAT)
+gg.getResults(1000)
+gg.editAll("55", gg.TYPE_FLOAT)
+gg.clearResults()
+gg.toast("♡ᴏᴡɴ : ꜰᴋᴇʀ♡")
+end
+end
+function ActivateFKER6()
+    isFKER6Active = true
+end
+FKER6()
+
+ActivateFKER6()
+
+
+function FKER5()
+gg.setRanges(32)
+gg.searchNumber("15.125", 16)
+gg.getResults(19)
+gg.editAll("90", 16)
+gg.clearResults()
+gg.setRanges(32)
+gg.searchNumber("15.125", 16)
+gg.getResults(13)
+gg.editAll("90", 16)
+gg.clearResults()
+gg.setVisible(false)
+gg.setRanges(gg.REGION_ANONYMOUS)
+gg.searchNumber(4194311, gg.TYPE_DWORD)
+gg.getResultCount()
+gg.clearResults()
+gg.setRanges(gg.REGION_ANONYMOUS)
+gg.searchNumber("16.5", gg.TYPE_FLOAT, false, gg.SIGN_EQUAL, 0, -1, 0)
+gg.refineNumber("16.5~16.5", gg.TYPE_FLOAT)
+gg.getResults(1000, nil, nil, nil, nil, nil, nil, nil, nil)
+gg.getResults(1000, nil, nil, nil, nil, nil, nil, nil, nil)
+gg.editAll("130", gg.TYPE_FLOAT)
+gg.setRanges(gg.REGION_ANONYMOUS)
+gg.searchNumber("15.0", gg.TYPE_FLOAT, false, gg.SIGN_EQUAL, 0, -1, 0)
+gg.refineNumber("15.0~15.0", gg.TYPE_FLOAT)
+gg.getResults(100, nil, nil, nil, nil, nil, nil, nil, nil)
+gg.getResults(100, nil, nil, nil, nil, nil, nil, nil, nil)
+gg.editAll("130", gg.TYPE_FLOAT)
+gg.setRanges(32)
+gg.searchNumber("15.125", 16)
+gg.getResults(19)
+gg.editAll("90", 16)
+gg.clearResults()
+gg.setRanges(32)
+gg.searchNumber("15.125", 16)
+gg.getResults(13)
+gg.editAll("90", 16)
+gg.clearResults()
+gg.setVisible(false)
+gg.setRanges(gg.REGION_ANONYMOUS)
+gg.searchNumber(4194311, gg.TYPE_DWORD)
+gg.getResultCount()
+gg.clearResults()
+gg.setRanges(gg.REGION_ANONYMOUS)
+gg.searchNumber("15.125", gg.TYPE_FLOAT, false, gg.SIGN_EQUAL, 0, -1, 0)
+gg.refineNumber("15.125~15.125", gg.TYPE_FLOAT)
+gg.getResults(500, nil, nil, nil, nil, nil, nil, nil, nil)
+gg.getResults(500, nil, nil, nil, nil, nil, nil, nil, nil)
+gg.editAll("130", gg.TYPE_FLOAT)
+gg.setRanges(gg.REGION_ANONYMOUS)
+gg.searchNumber("6.875", gg.TYPE_FLOAT, false, gg.SIGN_EQUAL, 0, -1, 0)
+gg.refineNumber("6.875~6.875", gg.TYPE_FLOAT)
+gg.getResults(500, nil, nil, nil, nil, nil, nil, nil, nil)
+gg.getResults(500, nil, nil, nil, nil, nil, nil, nil, nil)
+gg.editAll("105", gg.TYPE_FLOAT)
+gg.setRanges(gg.REGION_ANONYMOUS)
+gg.searchNumber("15.36987304688", gg.TYPE_FLOAT, false, gg.SIGN_EQUAL, 0, -1, 0)
+gg.refineNumber("15.36987304688~15.36987304688", gg.TYPE_FLOAT)
+gg.getResults(100, nil, nil, nil, nil, nil, nil, nil, nil)
+gg.getResults(100, nil, nil, nil, nil, nil, nil, nil, nil)
+gg.editAll("105", gg.TYPE_FLOAT)
+gg.setRanges(32)
+gg.searchNumber("15.125", 16)
+gg.getResults(19)
+gg.editAll("90", 16)
+gg.clearResults()
+gg.setRanges(32)
+gg.searchNumber("15.125", 16)
+gg.getResults(13)
+gg.editAll("90", 16)
+gg.clearResults()
+gg.setVisible(false)
+gg.setRanges(gg.REGION_ANONYMOUS)
+gg.searchNumber(4194311, gg.TYPE_DWORD)
+gg.getResultCount()
+gg.clearResults()
+gg.toast("♡ᴏᴡɴ : ꜰᴋᴇʀ♡")
+end
+
+function FKER2()
+function split(szFullString, szSeparator) local nFindStartIndex = 1 local nSplitIndex = 1 local nSplitArray = {} while true do local nFindLastIndex = string.find(szFullString, szSeparator, nFindStartIndex) if not nFindLastIndex then nSplitArray[nSplitIndex] = string.sub(szFullString, nFindStartIndex, string.len(szFullString)) break end nSplitArray[nSplitIndex] = string.sub(szFullString, nFindStartIndex, nFindLastIndex - 1) nFindStartIndex = nFindLastIndex + string.len(szSeparator) nSplitIndex = nSplitIndex + 1 end return nSplitArray end function xgxc(szpy, qmxg) for x = 1, #(qmxg) do xgpy = szpy + qmxg[x]["offset"] xglx = qmxg[x]["type"] xgsz = qmxg[x]["edit"] xgdj = qmxg[x]["freeze"] if xgdj == nil or xgdj == "" then gg.setValues({[1] = {address = xgpy, flags = xglx, value = xgsz}}) else gg.addListItems({[1] = {address = xgpy, flags = xglx, freeze = xgdj, value = xgsz}}) end xgsl = xgsl + 1 xgjg = true end end function xqmnb(qmnb) gg.clearResults() gg.setVisible(false) gg.setRanges(qmnb[1]["memory"]) gg.searchNumber(qmnb[3]["search"], qmnb[3]["type"]) if gg.getResultCount() == 0 then else gg.refineNumber(qmnb[3]["search"], qmnb[3]["type"]) gg.refineNumber(qmnb[3]["search"], qmnb[3]["type"]) gg.refineNumber(qmnb[3]["search"], qmnb[3]["type"]) xxx=gg.getResultCount() if gg.getResultCount() == 0 then else sl = gg.getResults(999999) sz = gg.getResultCount() xgsl = 0 if sz > 999999 then sz = 999999 end for i = 1, sz do pdsz = true for v = 4, #(qmnb) do if pdsz == true then pysz = {} pysz[1] = {} pysz[1].address = sl[i].address + qmnb[v]["offset"] pysz[1].flags = qmnb[v]["type"] szpy = gg.getValues(pysz) pdpd = qmnb[v]["valoffst"] .. ";" .. szpy[1].value szpd = split(pdpd, ";") tzszpd = szpd[1] pyszpd = szpd[2] if tzszpd == pyszpd then pdjg = true pdsz = true else pdjg = false pdsz = false end end end if pdjg == true then szpy = sl[i].address xgxc(szpy, qmxg) end end if xgjg == true then else end end end gg.clearResults()  end
+while isFKER2Active do
+qmnb = {
+  {["memory"] = 32},
+  {["name"] = "♡ᴏᴡɴ : ꜰᴋᴇʀ♡"},
+  {["search"] = 4194311, ["type"] = 4},
+  {["valoffst"] = 4, ["offset"] = 4, ["type"] = 4},
+  {["valoffst"] = 4194308, ["offset"] = 16, ["type"] = 4},
+}
+
+qmxg = {
+  {["edit"] = 100, ["offset"] = 64, ["type"] = 16}
+}
+
+xqmnb(qmnb)
+
+end
+end
+function ActivateFKER2()
+    isFKER2Active = true
+end
+FKER2()
+
+ActivateFKER2()
+
+function FKER1()
+for i = 1, 99999 do
+gg.setRanges(gg.REGION_ANONYMOUS)
+gg.searchNumber("16.5", gg.TYPE_FLOAT, false, gg.SIGN_EQUAL, 0, -1, 0)
+gg.refineNumber("16.5", gg.TYPE_FLOAT, false, gg.SIGN_EQUAL, 0, -1)
+revert = gg.getResults(1000, nil, nil, nil, nil, nil, nil, nil, nil)
+local t = gg.getResults(1000, nil, nil, nil, nil, nil, nil, nil, nil)
+gg.editAll("100", gg.TYPE_FLOAT) 
+for i, v in ipairs(t) do
+ if v.flags == gg.TYPE_FLOAT then
+  v.freeze = true
+ end
+end
+gg.setRanges(gg.REGION_ANONYMOUS)
+gg.searchNumber("15.125", gg.TYPE_FLOAT, false, gg.SIGN_EQUAL, 0, -1, 0)
+gg.refineNumber("15.125~15.125", gg.TYPE_FLOAT, false, gg.SIGN_EQUAL, 0, -1)
+revert = gg.getResults(1000, nil, nil, nil, nil, nil, nil, nil, nil)
+local t = gg.getResults(1000, nil, nil, nil, nil, nil, nil, nil, nil)
+gg.editAll("95", gg.TYPE_FLOAT) 
+for i, v in ipairs(t) do
+ if v.flags == gg.TYPE_FLOAT then
+  v.freeze = true
+ end
+end
+gg.setRanges(gg.REGION_ANONYMOUS)
+gg.searchNumber("16.5", gg.TYPE_FLOAT, false, gg.SIGN_EQUAL, 0, -1, 0)
+gg.refineNumber("16.5~16.5", gg.TYPE_FLOAT, false, gg.SIGN_EQUAL, 0, -1)
+revert = gg.getResults(1000, nil, nil, nil, nil, nil, nil, nil, nil)
+local t = gg.getResults(1000, nil, nil, nil, nil, nil, nil, nil, nil)
+gg.editAll("95", gg.TYPE_FLOAT) 
+for i, v in ipairs(t) do
+ if v.flags == gg.TYPE_FLOAT then
+  v.freeze = true
+ end
+end
+gg.setRanges(gg.REGION_ANONYMOUS)
+gg.searchNumber("15.125", gg.TYPE_FLOAT, false, gg.SIGN_EQUAL, 0, -1, 0)
+gg.refineNumber("15.125~15.125", gg.TYPE_FLOAT, false, gg.SIGN_EQUAL, 0, -1)
+revert = gg.getResults(1000, nil, nil, nil, nil, nil, nil, nil, nil)
+local t = gg.getResults(1000, nil, nil, nil, nil, nil, nil, nil, nil)
+gg.editAll("96", gg.TYPE_FLOAT) 
+for i, v in ipairs(t) do
+ if v.flags == gg.TYPE_FLOAT then
+  v.freeze = true
+ end
+end
+gg.setRanges(gg.REGION_ANONYMOUS)
+gg.searchNumber("16.5", gg.TYPE_FLOAT, false, gg.SIGN_EQUAL, 0, -1, 0)
+gg.refineNumber("16.5~16.5", gg.TYPE_FLOAT, false, gg.SIGN_EQUAL, 0, -1)
+revert = gg.getResults(1000, nil, nil, nil, nil, nil, nil, nil, nil)
+local t = gg.getResults(1000, nil, nil, nil, nil, nil, nil, nil, nil)
+gg.editAll("98", gg.TYPE_FLOAT) 
+for i, v in ipairs(t) do
+ if v.flags == gg.TYPE_FLOAT then
+  v.freeze = true
+ end
+end
+gg.setRanges(gg.REGION_ANONYMOUS)
+gg.searchNumber("15.125", gg.TYPE_FLOAT, false, gg.SIGN_EQUAL, 0, -1, 0)
+gg.refineNumber("15.125~15.125", gg.TYPE_FLOAT, false, gg.SIGN_EQUAL, 0, -1)
+revert = gg.getResults(1000, nil, nil, nil, nil, nil, nil, nil, nil)
+local t = gg.getResults(1000, nil, nil, nil, nil, nil, nil, nil, nil)
+gg.editAll("94", gg.TYPE_FLOAT) 
+for i, v in ipairs(t) do
+ if v.flags == gg.TYPE_FLOAT then
+  v.freeze = true
+ end
+end
+gg.setRanges(gg.REGION_ANONYMOUS)
+gg.searchNumber("16.5", gg.TYPE_FLOAT, false, gg.SIGN_EQUAL, 0, -1, 0)
+gg.refineNumber("16.5~16.5", gg.TYPE_FLOAT, false, gg.SIGN_EQUAL, 0, -1)
+revert = gg.getResults(1000, nil, nil, nil, nil, nil, nil, nil, nil)
+local t = gg.getResults(1000, nil, nil, nil, nil, nil, nil, nil, nil)
+gg.editAll("98", gg.TYPE_FLOAT) 
+for i, v in ipairs(t) do
+ if v.flags == gg.TYPE_FLOAT then
+  v.freeze = true
+ end
+end
+gg.setRanges(gg.REGION_ANONYMOUS)
+gg.searchNumber("15.125", gg.TYPE_FLOAT, false, gg.SIGN_EQUAL, 0, -1, 0)
+gg.refineNumber("15.125~15.125", gg.TYPE_FLOAT, false, gg.SIGN_EQUAL, 0, -1)
+revert = gg.getResults(1000, nil, nil, nil, nil, nil, nil, nil, nil)
+local t = gg.getResults(1000, nil, nil, nil, nil, nil, nil, nil, nil)
+gg.editAll("99", gg.TYPE_FLOAT) 
+for i, v in ipairs(t) do
+ if v.flags == gg.TYPE_FLOAT then
+  v.freeze = true
+ end
+end
+gg.setRanges(gg.REGION_ANONYMOUS)
+gg.searchNumber("16.5", gg.TYPE_FLOAT, false, gg.SIGN_EQUAL, 0, -1, 0)
+gg.refineNumber("16.5~16.5", gg.TYPE_FLOAT, false, gg.SIGN_EQUAL, 0, -1)
+revert = gg.getResults(1000, nil, nil, nil, nil, nil, nil, nil, nil)
+local t = gg.getResults(1000, nil, nil, nil, nil, nil, nil, nil, nil)
+gg.editAll("98", gg.TYPE_FLOAT) 
+for i, v in ipairs(t) do
+ if v.flags == gg.TYPE_FLOAT then
+  v.freeze = true
+ end
+end
+gg.setRanges(gg.REGION_ANONYMOUS)
+gg.searchNumber("15.125", gg.TYPE_FLOAT, false, gg.SIGN_EQUAL, 0, -1, 0)
+gg.refineNumber("15.125~15.125", gg.TYPE_FLOAT, false, gg.SIGN_EQUAL, 0, -1)
+revert = gg.getResults(1000, nil, nil, nil, nil, nil, nil, nil, nil)
+local t = gg.getResults(1000, nil, nil, nil, nil, nil, nil, nil, nil)
+gg.editAll("97", gg.TYPE_FLOAT) 
+for i, v in ipairs(t) do
+ if v.flags == gg.TYPE_FLOAT then
+  v.freeze = true
+ end
+end
+gg.setRanges(gg.REGION_ANONYMOUS)
+gg.searchNumber("16.5", gg.TYPE_FLOAT, false, gg.SIGN_EQUAL, 0, -1, 0)
+gg.refineNumber("16.5~16.5", gg.TYPE_FLOAT, false, gg.SIGN_EQUAL, 0, -1)
+revert = gg.getResults(1000, nil, nil, nil, nil, nil, nil, nil, nil)
+local t = gg.getResults(1000, nil, nil, nil, nil, nil, nil, nil, nil)
+gg.editAll("96", gg.TYPE_FLOAT) 
+for i, v in ipairs(t) do
+ if v.flags == gg.TYPE_FLOAT then
+  v.freeze = true
+  gg.toast("♡ᴏᴡɴ : ꜰᴋᴇʀ♡")
+ end
+end
+
+end
+end
+
+function FKER3()
+gg.setRanges(gg.REGION_ANONYMOUS)
+gg.searchNumber("16.5", gg.TYPE_FLOAT, false, gg.SIGN_EQUAL, 0, -1, 0)
+gg.getResults(50000, nil, nil, nil, nil, nil, nil, nil, nil)
+gg.editAll("90", gg.TYPE_FLOAT)
+gg.clearResults()
+gg.toast("1/2")
+gg.setRanges(gg.REGION_ANONYMOUS)
+gg.searchNumber("6.50000295305252", gg.TYPE_FLOAT, false, gg.SIGN_EQUAL, 0, -1, 0)
+gg.getResults(50000, nil, nil, nil, nil, nil, nil, nil, nil)
+gg.editAll("90", gg.TYPE_FLOAT)
+gg.clearResults()
+gg.toast("2/3")
+gg.setRanges(gg.REGION_ANONYMOUS)
+gg.searchNumber("2~10000D;15~15.9;1;0~999999D:17", gg.TYPE_FLOAT)
+gg.refineNumber("15.0", gg.TYPE_FLOAT)
+gg.getResults(50000)
+gg.editAll("90", gg.TYPE_FLOAT)
+gg.clearResults()
+gg.toast("ʜɪᴛʙᴏx ᴇxᴛᴇɴᴅ ᴀᴄᴛɪᴠᴀᴛᴇᴅ")
+end
+
+function FKER4()
+while isFKER4Active do
+gg.setRanges(32)
+gg.searchNumber("16.5", 16)
+gg.getResults(10)
+gg.editAll("100", 16)
+gg.clearResults()
+gg.setRanges(32)
+gg.searchNumber("16.5", 16)
+gg.getResults(14)
+gg.editAll("100", 16)
+gg.clearResults()
+gg.setRanges(32)
+gg.searchNumber("16.5", 16)
+gg.getResults(25)
+gg.editAll("100", 16)
+gg.clearResults()
+gg.setRanges(32)
+gg.searchNumber("15.125", 16)
+gg.getResults(19)
+gg.editAll("90", 16)
+gg.clearResults()
+gg.setRanges(32)
+gg.searchNumber("15.125", 16)
+gg.getResults(13)
+gg.editAll("90", 16)
+gg.clearResults()
+gg.setRanges(32)
+gg.searchNumber("4557642823998111744", gg.TYPE_QWORD) 
+gg.refineNumber("4557642823998111744", gg.TYPE_QWORD)
+gg.getResults(100)
+gg.editAll("4898227545839894528", gg.TYPE_QWORD)
+gg.clearResults()
+gg.setRanges(32)
+gg.searchNumber("4553139224369561600", gg.TYPE_QWORD) 
+gg.refineNumber("4553139224369561600", gg.TYPE_QWORD)
+gg.getResults(100)
+gg.editAll("4898227545839894528", gg.TYPE_QWORD)
+gg.clearResults()
+gg.setRanges(32)
+gg.searchNumber("4417130516489043968", gg.TYPE_QWORD) 
+gg.refineNumber("4417130516489043968", gg.TYPE_QWORD)
+gg.getResults(100)
+gg.editAll("4898227545839894528", gg.TYPE_QWORD)
+gg.clearResults()
+gg.searchNumber("15.125", gg.TYPE_FLOAT)
+gg.refineNumber("15.125", gg.TYPE_FLOAT)
+gg.getResults(100)
+gg.editAll("107", gg.TYPE_FLOAT)
+gg.clearResults()     
+gg.setRanges(gg.REGION_ANONYMOUS)
+gg.searchNumber("16.5", gg.TYPE_FLOAT, false, gg.SIGN_EQUAL, 0, -1, 0)
+gg.refineNumber("16.5", gg.TYPE_FLOAT, false, gg.SIGN_EQUAL, 0, -1, 0)
+gg.getResults(100)
+gg.editAll("107", gg.TYPE_FLOAT)
+gg.clearResults()        
+gg.setRanges(gg.REGION_ANONYMOUS)
+gg.searchNumber("27.75", gg.TYPE_FLOAT, false, gg.SIGN_EQUAL, 0, -1, 0)
+gg.refineNumber("27.75", gg.TYPE_FLOAT, false, gg.SIGN_EQUAL, 0, -1, 0)
+gg.getResults(100)
+gg.editAll("115", gg.TYPE_FLOAT)
+gg.clearResults()
+gg.searchNumber("15.36987304688",16,false,536870912,0,-1,0)
+gg.getResults(100)
+gg.getResults(100)
+gg.editAll("105",16)
+gg.setRanges(32)
+gg.searchNumber("16.5", 16)
+gg.getResults(10)
+gg.editAll("100", 16)
+gg.clearResults()
+gg.setRanges(32)
+gg.searchNumber("16.5", 16)
+gg.getResults(14)
+gg.editAll("100", 16)
+gg.clearResults()
+gg.setRanges(32)
+gg.searchNumber("16.5", 16)
+gg.getResults(25)
+gg.editAll("100", 16)
+gg.clearResults()
+gg.setRanges(32)
+gg.searchNumber("15.125", 16)
+gg.getResults(19)
+gg.editAll("90", 16)
+gg.clearResults()
+gg.setRanges(32)
+gg.searchNumber("15.125", 16)
+gg.getResults(13)
+gg.editAll("90", 16)
+gg.clearResults()
+gg.setVisible(false)
+gg.setRanges(gg.REGION_ANONYMOUS)
+gg.searchNumber(4194311, gg.TYPE_DWORD)
+gg.getResultCount()
+gg.clearResults()
+gg.toast("♡ᴏᴡɴ : ꜰᴋᴇʀ♡")
+end
+end
+function ActivateFKER4()
+    isFKER4Active = true
+end
+FKER4()
+
+ActivateFKER4()
+
+function wallhack()
+gg.setRanges(gg.REGION_VIDEO)
+gg.searchNumber("5.1650996e21;0.00999999978;2.0:177", gg.TYPE_FLOAT)
+gg.refineNumber("2", gg.TYPE_FLOAT)
+gg.getResults(1000)
+gg.editAll("50", gg.TYPE_FLOAT)
+gg.clearResults()
+gg.setRanges(gg.REGION_VIDEO)
+gg.searchNumber("7.21645982e-15F;5.87598228455F;7.07767686e-15F;44.00004577637F;2.0F", gg.TYPE_FLOAT)
+gg.refineNumber("2", gg.TYPE_FLOAT)
+gg.getResults(1000)
+gg.editAll("50", gg.TYPE_FLOAT)
+gg.clearResults()
+gg.toast("ᴡᴀʟʟʜᴀᴄᴋ ᴀᴄᴛɪᴠᴀᴛᴇᴅ")
+end
+
+function whit()
+gg.setRanges(gg.REGION_C_DATA)
+gg.searchNumber("1.0;1.40129846e-45;0.94999998808;1.40129846e-45;1.40129846e-45:17", gg.TYPE_FLOAT)
+gg.refineNumber("1", gg.TYPE_FLOAT)
+gg.getResults(500)
+gg.editAll("999", gg.TYPE_FLOAT)
+gg.clearResults()
+gg.toast("ᴡʜɪᴛᴇ ʙᴏᴅʏ ᴀᴄᴛɪᴠᴀᴛᴇᴅ")
+end
+
+
+
+function ipad()
+gg.setRanges(gg.REGION_ANONYMOUS)
+gg.searchNumber("80;0.20000000298;260", gg.TYPE_FLOAT, false, gg.SIGN_EQUAL, 0, -1, 0)
+gg.refineNumber("80", gg.TYPE_FLOAT)
+gg.getResults(99999, nil, nil, nil, nil, nil, nil, nil, nil)
+gg.editAll("130", gg.TYPE_FLOAT)
+gg.toast(" Ipad View On ")
+gg.toast("ɪᴘᴀᴅ ᴠɪᴇᴡ ᴀᴄᴛɪᴠᴀᴛᴇᴅ")
+end
+
+
+function green()
+gg.setRanges(gg.REGION_VIDEO)
+gg.searchNumber("3.75000214577;0.24022650719;0.69314718246;2.0", gg.TYPE_FLOAT)
+gg.refineNumber("2", gg.TYPE_FLOAT)
+gg.getResults(10000)
+gg.editAll("80", gg.TYPE_FLOAT)
+gg.clearResults()
+gg.clearResults()
+gg.toast(" Executing 1/3 ")
+gg.searchNumber("655362;32769;32771;-2134900728;32770;65537:57", gg.TYPE_DWORD, false, gg.SIGN_EQUAL, 0, -1, 0)
+gg.refineNumber("32771", gg.TYPE_DWORD, false, gg.SIGN_EQUAL, 0, -1, 0)
+gg.getResults(20)
+gg.editAll("7", gg.TYPE_DWORD)
+gg.clearResults()
+gg.toast(" Executing 2/3 ")
+gg.setRanges(gg.REGION_VIDEO)
+gg.searchNumber("25,604.0;4.3832616e-42;1.40129846e-45;4.38466289e-42;1.0;-127.0;-0.0;0.5;-0.5;2.0:6905", gg.TYPE_FLOAT)
+gg.refineNumber("2", gg.TYPE_FLOAT)
+gg.getResults(10000)
+gg.editAll("80", gg.TYPE_FLOAT)
+gg.toast("ɢʀᴇᴇɴ ʙᴏᴅʏ ᴡᴀʟʟʜᴀᴄᴋ ᴀᴄᴛɪᴠᴀᴛᴇᴅ")
+gg.clearResults()
+gg.setVisible(false)
+end 
+
+
+
+
+
+
+function water1()
+gg.setRanges(gg.REGION_VIDEO) 
+gg.searchNumber("1.37753945e-39F;0.00001F;2.0F:113", gg.TYPE_FLOAT) 
+gg.refineNumber("2", gg.TYPE_FLOAT) 
+gg.getResults(6) 
+gg.editAll("0", gg.TYPE_FLOAT)
+gg.clearResults()
+gg.toast("ɴᴏ ᴡᴀᴛᴇʀ ᴀᴄᴛɪᴠᴀᴛᴇᴅ")
+end
+----------------------------------------------------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------------------------------------------------
+cs = "21"
+
+function Exit()
+print("📝FKER3 SCRIRT📝")
+print("️ʏᴏᴜᴛᴜʙᴇ : 🤫👉⟬@FKER3⟭️")
+print("ᴛᴇʟᴇɢʀᴀᴍ ᴍᴇ :🤳👉⟬@FKER3⟭")
+gg.setVisible(true)
+gg.skipRestoreState()
+gg.setVisible(true)
+gg.skipRestoreState()
+gg.setVisible(true)
+os.exit()
+end
+while true do
+if gg.isVisible(true) then
+PUBGMH = 1
+gg.setVisible(false)
+end
+if PUBGMH == 1 then
+HOME()
+end
+end
+
+
+
+
+
+
