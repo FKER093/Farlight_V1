@@ -1,24 +1,4 @@
-Date=13       -- Expiry date
-Month=8      -- Expiry month 
-Year=2023     -- Expiry year
-expiremessage="Script has expired. New version available @FKER6"  --Expiry message 
-
---Do not change below code 
-function check(t) 
-if t<10 then t="0"..t end
-return t
+if os.date("%Y%m%d") > "20211116" then
+gameguardianph=gg.alert("Script has expired. New version available @FKER6")
+os.exit()
 end
-expiredate=Year.. check(Month).. check(Date)
-date=gg.makeRequest("http://www.guimp.com").headers["Date" ][1]  --guimp.com is smallest webpage so takes less time for loading 
-month={"Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"}
-for i=1,12 do
- if month[i]==string.sub(date,9, 11) then
-      if i<10 then
-       i="0"..i 
-      end 
- currentdate=string.sub(date,13, 16)..i..string.sub(date,6, 7)  
- end
-end
-if tonumber(currentdate)>=tonumber(expiredate) then gg.alert(expiremessage) os.exit() end 
--- Your script code below
-
